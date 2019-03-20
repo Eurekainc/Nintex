@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Nintex.MyProfile.BundleConfig" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.FilterConfig" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.RouteConfig" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.MvcApplication" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Controllers.HomeController" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Controllers.ProfileController">
+    <Position X="4.75" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAQAAAAAKAAAAAAEAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Data.NintextProfile">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAEAAAAAAAEAAAAAgAAAA=</HashCode>
+      <FileName>Data\Profile.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Data.Permission">
+    <Position X="3.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Data\Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Data.Person">
+    <Position X="7.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAUEAAAAAAgEAAAAAAAQAAEAAAAAADIAAAAAgAAAk=</HashCode>
+      <FileName>Data\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Data.PersonPermission">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAEAAEAAAAgAAEAAAEAAAAAAAgAAABAAAAAAAAAAE=</HashCode>
+      <FileName>Data\PersonPermission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Models.ChangePasswordModel">
+    <Position X="5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAABAAAAAAAAAAAAAAAAABAAAAIAA=</HashCode>
+      <FileName>Models\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Models.ChangeTimeZoneModel">
+    <Position X="7.25" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Models.RequestPersonPermissionModel">
+    <Position X="7.25" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Models.ProfileViewModel">
+    <Position X="2.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQEAAAAAAgEAAAAAAAQAAEAAAAAAAIAAAAAgAAAg=</HashCode>
+      <FileName>Models\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nintex.MyProfile.Repository.DbContext">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\DbContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Nintex.MyProfile.Repository.Repository&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAIBAAACAAAQAAAAAEAAEAAAAEAAAAAAIA=</HashCode>
+      <FileName>Repository\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Interface Name="Nintex.MyProfile.Repository.IDbContext">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\IDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Nintex.MyProfile.Repository.IRepository&lt;T&gt;">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAAAACAAAQAAAAAEAAEAAAAAAAAAAAIA=</HashCode>
+      <FileName>Repository\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

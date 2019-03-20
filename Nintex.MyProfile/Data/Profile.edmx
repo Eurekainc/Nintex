@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NintextProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PermissionName" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="50" />
+          <Property Name="LastName" Type="nchar" MaxLength="50" />
+          <Property Name="Title" Type="nchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="nchar" MaxLength="100" />
+          <Property Name="ProfilePhoto" Type="nchar" MaxLength="100" />
+          <Property Name="Password" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="DefaultTimeZone" Type="datetime" />
+          <Property Name="CurrentTimeZone" Type="datetime" />
+          <Property Name="CreatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="UpdatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PersonPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="UpdatedTime" Type="datetime" />
+          <Property Name="PermissionId" Type="int" />
+        </EntityType>
+        <Association Name="FK_PersonPermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
+          <End Role="PersonPermission" Type="Self.PersonPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonPermission_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="PersonPermission" Type="Self.PersonPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonPermission">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NintextProjectModelStoreContainer">
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonPermission" EntityType="Self.PersonPermission" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PersonPermission_Permission" Association="Self.FK_PersonPermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="PersonPermission" EntitySet="PersonPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonPermission_Person" Association="Self.FK_PersonPermission_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonPermission" EntitySet="PersonPermission" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NintextProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="PersonPermissions" Relationship="NintextProjectModel.FK_PersonPermission_Permission" FromRole="Permission" ToRole="PersonPermission" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ProfilePhoto" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DefaultTimeZone" Type="DateTime" Precision="3" />
+          <Property Name="CurrentTimeZone" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PersonPermissions" Relationship="Self.FK_PersonPermission_Person" FromRole="Person" ToRole="PersonPermission" />
+        </EntityType>
+        <EntityType Name="PersonPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonPermission_Person" FromRole="PersonPermission" ToRole="Person" />
+          <Property Name="PermissionId" Type="Int32" />
+          <NavigationProperty Name="Permission" Relationship="NintextProjectModel.FK_PersonPermission_Permission" FromRole="PersonPermission" ToRole="Permission" />
+        </EntityType>
+        <Association Name="FK_PersonPermission_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="PersonPermission" Type="Self.PersonPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonPermission">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NintextProfile" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="PersonPermissions" EntityType="Self.PersonPermission" />
+          <AssociationSet Name="FK_PersonPermission_Person" Association="Self.FK_PersonPermission_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonPermission" EntitySet="PersonPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonPermission_Permission" Association="NintextProjectModel.FK_PersonPermission_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="PersonPermission" EntitySet="PersonPermissions" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_PersonPermission_Permission">
+          <End Type="NintextProjectModel.Permission" Role="Permission" Multiplicity="0..1" />
+          <End Type="NintextProjectModel.PersonPermission" Role="PersonPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PersonPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NintextProjectModelStoreContainer" CdmEntityContainer="NintextProfile">
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="NintextProjectModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PermissionName" ColumnName="PermissionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="NintextProjectModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ProfilePhoto" ColumnName="ProfilePhoto" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DefaultTimeZone" ColumnName="DefaultTimeZone" />
+                <ScalarProperty Name="CurrentTimeZone" ColumnName="CurrentTimeZone" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonPermissions">
+            <EntityTypeMapping TypeName="NintextProjectModel.PersonPermission">
+              <MappingFragment StoreEntitySet="PersonPermission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
